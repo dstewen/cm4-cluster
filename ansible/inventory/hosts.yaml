@@ -1,0 +1,51 @@
+---
+kubernetes:
+  children:
+    controllers:
+      hosts:
+        "blade1":
+          ansible_user: "dstewen"
+          ansible_host: "192.168.10.31"
+          ansible_ssh_private_key_file: "~/Documents/k3svms"
+        "blade2":
+          ansible_user: "dstewen"
+          ansible_host: "192.168.10.32"
+          ansible_ssh_private_key_file: "~/Documents/k3svms"
+        "blade3":
+          ansible_user: "dstewen"
+          ansible_host: "192.168.10.33"
+          ansible_ssh_private_key_file: "~/Documents/k3svms"
+    workers:
+      hosts:
+        "blade4":
+          ansible_user: "dstewen"
+          ansible_host: "192.168.10.34"
+          ansible_ssh_private_key_file: "~/Documents/k3svms"
+        "blade5":
+          ansible_user: "dstewen"
+          ansible_host: "192.168.10.35"
+          ansible_ssh_private_key_file: "~/Documents/k3svms"
+        "blade6":
+          ansible_user: "dstewen"
+          ansible_host: "192.168.10.36"
+          ansible_ssh_private_key_file: "~/Documents/k3svms"
+        "blade7":
+          ansible_user: "dstewen"
+          ansible_host: "192.168.10.37"
+          ansible_ssh_private_key_file: "~/Documents/k3svms"
+        "blade8":
+          ansible_user: "dstewen"
+          ansible_host: "192.168.10.38"
+          ansible_ssh_private_key_file: "~/Documents/k3svms"
+        "blade9":
+          ansible_user: "dstewen"
+          ansible_host: "192.168.10.39"
+          ansible_ssh_private_key_file: "~/Documents/k3svms"
+        "nuc1":
+          ansible_user: "dstewen"
+          ansible_host: "192.168.10.100"
+          ansible_ssh_private_key_file: "~/Documents/k3svms"
+        "nuc3":
+          ansible_user: "dstewen"
+          ansible_host: "192.168.10.102"
+          ansible_ssh_private_key_file: "~/Documents/k3svms"
