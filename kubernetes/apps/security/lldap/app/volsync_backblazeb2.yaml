@@ -4,7 +4,7 @@ apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: lldap-volsync-backblazeb2
-  namespace: home
+  namespace: security
 spec:
   secretStoreRef:
     kind: ClusterSecretStore

@@ -4,7 +4,6 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: authentik
-  namespace: security
 spec:
   interval: 30m
   chart:
@@ -23,6 +22,9 @@ spec:
     remediation:
       strategy: rollback
       retries: 3
+  dependsOn:
+    - name: smtp-relay
+      namespace: home
   values:
     global:
       podAnnotations:
