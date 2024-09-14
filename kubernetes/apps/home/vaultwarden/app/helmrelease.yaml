@@ -4,13 +4,12 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: &app vaultwarden
-  namespace: home
 spec:
   interval: 30m
   chart:
     spec:
       chart: app-template
-      version: 2.6.0
+      version: 3.4.0
       sourceRef:
         kind: HelmRepository
         name: bjw-s
@@ -46,7 +45,7 @@ spec:
                 values:
                 - worker
     controllers:
-      main:
+      vaultwarden:
         type: statefulset
         annotations:
           reloader.stakater.com/auto: "true"
@@ -60,7 +59,7 @@ spec:
               - secretRef:
                   name: vaultwarden-secret
         containers:
-          main:
+          app:
             image:
               repository: vaultwarden/server
               tag: 1.32.0
@@ -91,7 +90,8 @@ spec:
                 cpu: 100m
                 memory: 64M
     service:
-      main:
+      app:
+        controller: *app
         ports:
           http:
             port: &port 80
@@ -99,12 +99,12 @@ spec:
             enabled: true
             port: &websocket-port 3012
     ingress:
-      main:
+      app:
         enabled: true
         className: "internal"
         anotations:
           external-dns.alpha.kubernetes.io/enabled: "true"
-          external-dns.alpha.kubernetes.io/target: services.${SECRET_DOMAIN}.
+          external-dns.alpha.kubernetes.io/target: external.${SECRET_DOMAIN}
           hajimari.io/icon: mdi:lock
           hajimari.io/enable: "true"
           hajimari.io/appName: "Vaultwarden"
@@ -120,17 +120,17 @@ spec:
             paths:
               - path: /
                 service:
-                  name: main
+                  identifier: app
                   port: *port
               - path: /notifications/hub/negotiate
                 pathType: Prefix
                 service:
-                  name: main
+                  identifier: app
                   port: *port
               - path: /notifications/hub
                 pathType: Prefix
                 service:
-                  name: main
+                  identifier: app
                   port: *websocket-port
         tls:
           - hosts:
