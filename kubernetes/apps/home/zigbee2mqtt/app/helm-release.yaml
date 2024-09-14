@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 2.5.0
+      version: 3.4.0
       sourceRef:
         kind: HelmRepository
         name: bjw-s-charts
@@ -25,11 +25,11 @@ spec:
     keepHistory: false
   values:
     controllers:
-      main:
+      zigbee2mqtt:
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
-          main:
+          app:
             image:
               repository: ghcr.io/koenkk/zigbee2mqtt
               tag: 1.40.1@sha256:8127ec2b6e5370eb83033e9cd7250a72bc418b4ead722eadb17c664bebd8b829
@@ -68,11 +68,11 @@ spec:
                   name: zigbee2mqtt-secret
             resources:
               requests:
-                smarter-devices/ttyACM0: 1
+#                smarter-devices/ttyACM0: 1
                 cpu: 10m
                 memory: 100M
-              limits:
-                smarter-devices/ttyACM0: 1
+#              limits:
+#                smarter-devices/ttyACM0: 1
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
@@ -91,7 +91,7 @@ spec:
             supplementalGroups:
               - 20
     ingress:
-      main:
+      app:
         enabled: true
         className: internal
         annotations:
@@ -101,7 +101,7 @@ spec:
             paths: &paths
               - path: /
                 service:
-                  name: main
+                  identifier: app
                   port: http
           - host: &customHost zigbee.${SECRET_DOMAIN}
             paths: *paths
@@ -114,7 +114,7 @@ spec:
         enabled: true
         existingClaim: *app
     service:
-      main:
+      app:
         ports:
           http:
             port: *port
