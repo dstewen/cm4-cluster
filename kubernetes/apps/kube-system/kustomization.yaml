@@ -5,7 +5,7 @@ resources:
   - ./namespace.yaml
   - ./cilium/ks.yaml
 #  - ./descheduler/ks.yaml
-#  - ./external-secrets/yaml
+  - ./external-secrets/ks.yaml
   - ./intel-device-plugin/ks.yaml
   - ./kube-vip/ks.yaml
   - ./metrics-server/ks.yaml
