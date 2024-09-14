@@ -4,7 +4,6 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: rook-ceph-cluster
-  namespace: rook-ceph
 spec:
   interval: 30m
   timeout: 15m
@@ -24,7 +23,13 @@ spec:
   upgrade:
     cleanupOnFail: true
     remediation:
+      strategy: rollback
       retries: 3
+  dependsOn:
+    - name: rook-ceph-operator
+      namespace: rook-ceph
+    - name: snapshot-controller
+      namespace: storage
   uninstall:
     keepHistory: false
   values:
@@ -37,6 +42,7 @@ spec:
         annotations:
           hajimari.io/appName: "Rook"
           hajimari.io/icon: mdi:chess-rook
+          external-dns.alpha.kubernetes.io/target: internal.${SECRET_DOMAIN}
         host:
           name: &host rook.${SECRET_DOMAIN}
           path: /
