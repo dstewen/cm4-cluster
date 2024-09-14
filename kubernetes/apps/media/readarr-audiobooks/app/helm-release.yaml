@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 2.6.0
+      version: 3.4.0
       interval: 15m
       sourceRef:
         kind: HelmRepository
@@ -18,11 +18,11 @@ spec:
   interval: 15m
   values:
     controllers:
-      main:
+      readarr-audiobooks:
         annotations:
           reloader.stakater.com/auto: "true"
         containers:
-          main:
+          app:
             image:
               repository: ghcr.io/onedr0p/readarr-nightly
               tag: 0.4.0.2593
@@ -42,7 +42,7 @@ spec:
               - 2000
 
     service:
-      main:
+      app:
         ports:
           http:
             port: &port 8787
@@ -50,7 +50,7 @@ spec:
     ingress:
       main:
         enabled: true
-        className: nginx-internal
+        className: internal
         annotations:
           nginx.ingress.kubernetes.io/auth-method: GET
           nginx.ingress.kubernetes.io/auth-url: http://authelia.default.svc.cluster.local:8000/api/verify
@@ -63,7 +63,7 @@ spec:
               - path: /
                 pathType: Prefix
                 service:
-                  name: main
+                  identifier: app
                   port: http
         tls:
           - hosts:
