@@ -10,7 +10,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: "./kubernetes/apps/networking/openspeedtest/app"
+  path: "./kubernetes/apps/network/openspeedtest/app"
   prune: true
   sourceRef:
     kind: GitRepository
