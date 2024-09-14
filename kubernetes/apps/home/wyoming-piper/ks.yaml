@@ -12,8 +12,8 @@ spec:
       app.kubernetes.io/name: *app
   dependsOn:
 #    - name: cluster-apps-home-assistant
-    - name: cluster-apps-external-secrets-stores
-    - name: cluster-apps-volsync
+    - name: external-secrets-stores
+    - name: volsync
   path: ./kubernetes/apps/home/wyoming-piper/app
   prune: true
   sourceRef:
