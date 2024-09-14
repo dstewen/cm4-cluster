@@ -110,4 +110,5 @@ spec:
         type: emptyDir
         medium: Memory
         sizeLimit: 1Gi
-        mountPath: /dev/shm
+        globalMounts:
+          - path: /dev/shm
