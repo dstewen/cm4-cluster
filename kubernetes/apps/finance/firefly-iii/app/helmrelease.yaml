@@ -4,13 +4,12 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: &app firefly-iii
-  namespace: finance
 spec:
   interval: 15m
   chart:
     spec:
       chart: app-template
-      version: 3.3.2
+      version: 3.4.0
       sourceRef:
         kind: HelmRepository
         name: bjw-s
@@ -27,7 +26,7 @@ spec:
     controllers:
       firefly-iii:
         containers:
-          main:
+          app:
             image:
               repository: fireflyiii/core
               tag: version-6.1.15
@@ -118,13 +117,13 @@ spec:
                     name: pgo-cluster-pguser-fireflyiii
                     key: host
     service:
-      main:
-        controller: firefly-iii
+      app:
+        controller: *app
         ports:
           http:
             port: 8080
     ingress:
-      main:
+      app:
         enabled: true
         className: internal
         hosts:
@@ -133,7 +132,7 @@ spec:
               - path: /
                 pathType: Prefix
                 service:
-                  identifier: main
+                  identifier: app
                   port: http
         tls:
           - hosts:
@@ -144,5 +143,5 @@ spec:
         existingClaim: firefly-iii-data
         advancedMounts:
           firefly-iii:
-            main:
+            app:
               - path: /var/www/html/storage/upload
