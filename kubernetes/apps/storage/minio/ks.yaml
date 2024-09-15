@@ -11,8 +11,8 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   dependsOn:
-    - name: cluster-apps-nginx-internal
-    - name: cluster-apps-nginx-external
+    - name: ingress-nginx-internal
+    - name: ingress-nginx-external
   path: ./kubernetes/apps/storage/minio/app
   prune: true
   sourceRef:
