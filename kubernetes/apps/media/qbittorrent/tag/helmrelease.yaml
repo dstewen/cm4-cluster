@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: app-template
-      version: 2.6.0
+      version: 3.4.0
       sourceRef:
         kind: HelmRepository
         name: bjw-s
@@ -38,13 +38,13 @@ spec:
         fsGroupChangePolicy: "OnRootMismatch"
 
     controllers:
-      main:
+      qbittools-tagging:
         type: cronjob
         cronjob:
           schedule: "@hourly"
 
         containers:
-          main:
+          app:
             image:
               repository: ghcr.io/buroa/qbtools
               tag: v0.16.10@sha256:fec06dd13ec90694110ca912eb9003d3a46d29be83944538599b35fc78dcbf18
@@ -68,5 +68,5 @@ spec:
                 cpu: 25m
 
     service:
-      main:
+      app:
         enabled: false
