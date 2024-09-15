@@ -34,12 +34,16 @@ spec:
       scanJobsConcurrentLimit: 3
       scanJobTimeout: 15m
       scanJobTTL: 10s
+      builtInTrivyServer: true
       metricsVulnIdEnabled: true
       vulnerabilityScannerScanOnlyCurrentRevisions: true
       configAuditScannerScanOnlyCurrentRevisions: true
     trivy:
       ignoreUnfixed: true
+      mode: ClientServer
+      storageClassName: openebs-hostpath
 
+      slow: true
       # -- resources resource requests and limits for scan job containers
       resources:
         requests:
@@ -52,6 +56,7 @@ spec:
 
     serviceMonitor:
       enabled: true
+      namespace: trivy-system
     trivyOperator:
       scanJobNodeSelector:
         node-role.kubernetes.io/worker: worker
