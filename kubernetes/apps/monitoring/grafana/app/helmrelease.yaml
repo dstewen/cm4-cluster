@@ -751,14 +751,21 @@ spec:
 
       trivy:
         trivy-image-vulnerability-overview:
-          # renovate: depName="Trivy Image Vulnerability"
+          # renovate: depName="Trivy Image Vulnerability Overview"
           gnetId: 16742
           revision: 1
           datasource:
             - { name: DS_PROMETHEUS, value: Prometheus }
 
+        trivy-operator-image-vulnerability:
+          # renovate: depName="Trivy Operator / Image Vulnerability"
+          gnetId: 17214
+          revision: 1
+          datasource:
+            - { name: DS_PROMETHEUS, value: Prometheus }
+
         trivy-operator-vulnerabilities:
-          # renovate: depName="Trivy Operator Vulnerabilities"
+          # renovate: depName="Trivy Operator - Vulnerabilities"
           gnetId: 16337
           revision: 12
           datasource: Prometheus
@@ -768,6 +775,27 @@ spec:
           gnetId: 11314
           revision: 10
           datasource: Prometheus
+
+        trivy-operator-dashboard2:
+          # renovate: depName="Trivy Operator Dashboard2"
+          gnetId: 17813
+          revision: 2
+          datasource:
+            - { name: DS_PROMETHEUS, value: Prometheus }
+
+        trivy-operator-dashboard3:
+          # renovate: depName="Trivy Operator Dashboard3"
+          gnetId: 21398
+          revision: 1
+          datasource:
+            - { name: DS_PROMETHEUS, value: Prometheus }
+
+        trivy-operator-reports:
+          # renovate: depName="Trivy Operator Reports"
+          gnetId: 16652
+          revision: 1
+          datasource:
+            - { name: DS_PROMETHEUS, value: Prometheus }
 
       unifi:
         unifi-insights:
