@@ -10,6 +10,9 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
+  dependsOn:
+    - name: rook-ceph-cluster
+    - name: volsync
   path: "./kubernetes/apps/media/tdarr/app"
   prune: true
   sourceRef:
@@ -19,6 +22,3 @@ spec:
   interval: 30m
   retryInterval: 1m
   timeout: 5m
-  dependsOn:
-    - name: cluster-apps-rook-ceph-cluster
-    - name: cluster-apps-volsync
