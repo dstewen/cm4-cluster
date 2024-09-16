@@ -17,7 +17,7 @@ spec:
           command: ["/bin/sh", "-c"]
           args:
             - apk add --no-cache sgdisk util-linux util-linux-misc parted device-mapper;
-              sgdisk --zap-all ${disk};
+              sgdisk --zap-all ${disk} --mbrtogpt;
               dd if=/dev/zero of=${disk} bs=1M count=100 oflag=direct;
               blkdiscard ${disk};
               partprobe ${disk};
