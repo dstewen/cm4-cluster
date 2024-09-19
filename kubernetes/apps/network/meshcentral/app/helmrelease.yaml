@@ -55,7 +55,7 @@ spec:
           - hosts: [*host]
     persistence:
       config:
-        type: secret
+        type: configMap
         name: meshcentral-config
         advancedMounts:
           meshcentral:
