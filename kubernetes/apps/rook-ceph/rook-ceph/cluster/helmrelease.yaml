@@ -112,13 +112,13 @@ spec:
 #              - name: /dev/disk/by-id/nvme-INTEL_SSDPEKKW512G8_BTHH81000E09512D
           - name: blade4
             devices:
-              - name: /dev/nvme0n1p3
+              - name: /dev/disk/by-id/nvme-WD_Blue_SN570_500GB_22061X806385-part3
           - name: blade5
             devices:
-              - name: /dev/nvme0n1p3
+              - name: /dev/disk/by-id/nvme-WD_Blue_SN570_500GB_220628800811-part3
           - name: blade6
             devices:
-              - name: /dev/nvme0n1p3
+              - name: /dev/disk/by-id/nvme-WD_Blue_SN570_500GB_220628800731-part3
 #          - name: blade7
 #            devices:
 #              - name: /dev/nvme0n1p3
