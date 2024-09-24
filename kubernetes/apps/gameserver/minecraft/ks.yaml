@@ -8,9 +8,9 @@ metadata:
   labels:
     substitution.flux.home.arpa/enabled: "true"
 spec:
-  dependsOn:
-    - name: local-hostpath
-      namespace: storage
+#  dependsOn:
+#    - name: local-hostpath
+#      namespace: storage
   targetNamespace: gameserver
   commonMetadata:
     labels:
