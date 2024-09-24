@@ -10,7 +10,7 @@ metadata:
     snapshot.home.arpa/enabled: "true"
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   storageClassName: openebs-hostpath
   resources:
     requests:
