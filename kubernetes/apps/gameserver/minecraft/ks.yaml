@@ -9,7 +9,8 @@ metadata:
     substitution.flux.home.arpa/enabled: "true"
 spec:
   dependsOn:
-    - name: rook-ceph-cluster
+    - name: local-hostpath
+      namespace: storage
   targetNamespace: gameserver
   commonMetadata:
     labels:
