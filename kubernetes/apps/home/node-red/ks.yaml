@@ -10,8 +10,8 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   dependsOn:
-    - name: volsync
-    - name: rook-ceph-cluster
+#    - name: volsync
+#    - name: rook-ceph-cluster
     - name: external-secrets-stores
   path: ./kubernetes/apps/home/node-red/app
   prune: true
