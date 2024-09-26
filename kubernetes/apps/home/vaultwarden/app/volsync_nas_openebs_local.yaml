@@ -37,6 +37,9 @@ spec:
     copyMethod: Snapshot
     pruneIntervalDays: 7
     repository: vaultwarden-restic-secret
+    cacheCapacity: 1Gi
+    cacheStorageClassName: local-hostpath
+    volumeSnapshotClassName: local-hostpath
     storageClassName: local-hostpath
     moverSecurityContext:
       runAsUser: 568
