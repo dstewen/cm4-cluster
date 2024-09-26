@@ -34,7 +34,7 @@ spec:
   trigger:
     schedule: "0 0 * * *"
   restic:
-    copyMethod: Clone
+    copyMethod: Snapshot
     pruneIntervalDays: 7
     repository: unifi-backblazeb2-secret
     storageClassName: local-hostpath
