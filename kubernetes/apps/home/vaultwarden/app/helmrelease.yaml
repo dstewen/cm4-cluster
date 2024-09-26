@@ -144,4 +144,3 @@ spec:
       data:
         enabled: true
         existingClaim: vaultwarden-data
-        mountPath: /data
