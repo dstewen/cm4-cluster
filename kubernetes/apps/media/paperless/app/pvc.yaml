@@ -4,6 +4,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: paperless-config
   namespace: media
+  labels:
+    app.kubernetes.io/name: &name paperless
+    app.kubernetes.io/instance: *name
+    snapshot.home.arpa/enabled: "true"
 spec:
   accessModes:
     - ReadWriteOnce
