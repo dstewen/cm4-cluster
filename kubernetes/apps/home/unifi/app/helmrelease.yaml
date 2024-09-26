@@ -27,8 +27,8 @@ spec:
   uninstall:
     keepHistory: false
   dependsOn:
-    - name: rook-ceph-cluster
-      namespace: rook-ceph
+    - name: local-path-provisioner
+      namespace: storage
     - name: volsync
       namespace: volsync
   values:
@@ -81,7 +81,7 @@ spec:
             - name: config
               accessMode: ReadWriteOnce
               size: 10Gi
-              storageClass: ceph-block
+              storageClass: local-hostpath
               globalMounts:
                 - path: /unifi
     service:
