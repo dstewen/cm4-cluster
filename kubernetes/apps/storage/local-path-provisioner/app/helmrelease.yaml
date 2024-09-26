@@ -40,7 +40,7 @@ spec:
       externalResizer:
         enabled: false
       externalAttacher:
-        enabled: false
+        enabled: true
       externalSnapshotter:
         enabled: true
         extraArgs:
