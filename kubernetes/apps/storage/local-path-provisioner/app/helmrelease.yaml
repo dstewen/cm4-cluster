@@ -42,7 +42,10 @@ spec:
       externalAttacher:
         enabled: false
       externalSnapshotter:
-        enabled: false
+        enabled: true
+        extraArgs:
+          - --leader-election=false
+          - --node-deployment=true
     csiDriver:
       name: local-hostpath.cluster.local
       storageCapacity: true
@@ -54,6 +57,9 @@ spec:
         reclaimPolicy: Delete
         volumeBindingMode: WaitForFirstConsumer
         allowVolumeExpansion: true
+    volumeSnapshotClasses:
+      - name: local-hostpath
+        deletionPolicy: Delete
     driver:
       config:
         driver: local-hostpath
