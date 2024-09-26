@@ -47,7 +47,7 @@ spec:
                 values:
                 - worker
       args:
-        - --enable-distributed-snapshotting
+        enableDistributedSnapshotting: true
       serviceMonitor:
         create: true
     webhook:
