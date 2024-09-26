@@ -4,6 +4,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: plex-config-0
   namespace: media
+  labels:
+    app.kubernetes.io/name: &name plex
+    app.kubernetes.io/instance: *name
+    snapshot.home.arpa/enabled: "true"
 spec:
   accessModes:
     - ReadWriteOnce
@@ -19,6 +23,10 @@ kind: PersistentVolumeClaim
 metadata:
   name: plex-cache
   namespace: media
+  labels:
+    app.kubernetes.io/name: &name plex
+    app.kubernetes.io/instance: *name
+    snapshot.home.arpa/enabled: "true"
 spec:
   accessModes:
     - ReadWriteOnce
