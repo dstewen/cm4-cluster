@@ -27,6 +27,12 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    volumeSnapshotClasses:
+      - name: democratic-csi-local-hostpath
+        driver: local-hostpath.cluster.local
+        annotations:
+          snapshot.storage.kubernetes.io/is-default-class: "true"
+        deletionPolicy: Delete
     controller:
       revisionHistoryLimit: 3
       affinity:
@@ -50,10 +56,3 @@ spec:
         enableDistributedSnapshotting: true
       serviceMonitor:
         create: true
-    webhook:
-      enabled: true
-      tls:
-        certManagerIssuerRef:
-        name: internal-issuer
-        kind: ClusterIssuer
-      revisionHistoryLimit: 3
