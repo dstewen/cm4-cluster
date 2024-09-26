@@ -56,7 +56,8 @@ spec:
         defaultClass: false
         reclaimPolicy: Delete
         volumeBindingMode: WaitForFirstConsumer
-        allowVolumeExpansion: true
+        # distributed support is not yet ready for expansion
+        allowVolumeExpansion: false
     volumeSnapshotClasses:
       - name: local-hostpath
         deletionPolicy: Delete
