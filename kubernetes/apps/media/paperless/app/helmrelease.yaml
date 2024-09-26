@@ -22,12 +22,12 @@ spec:
       strategy: rollback
       retries: 3
   dependsOn:
-  - name: dragonfly-operator
-    namespace: database
-  - name: rook-ceph-cluster
-    namespace: rook-ceph
-  - name: volsync
-    namespace: volsync
+    - name: dragonfly-operator
+      namespace: database
+    - name: local-path-provisioner
+      namespace: storage
+    - name: volsync
+      namespace: volsync
   values:
     defaultPodOptions:
       affinity:
