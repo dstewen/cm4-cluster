@@ -39,3 +39,6 @@ spec:
         memory: 100M
       limits:
         memory: 100M
+    settings:
+      extraArgs:
+      - --event-namespace monitoring
