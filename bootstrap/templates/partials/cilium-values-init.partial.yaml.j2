@@ -16,11 +16,6 @@ cni:
   binPath: /var/lib/rancher/k3s/data/current/bin
   confPath: /var/lib/rancher/k3s/agent/etc/cni/net.d
   #% endif %#
-containerRuntime:
-  integration: containerd
-  #% if bootstrap_distribution in ["k3s"] %#
-  socketPath: /var/run/k3s/containerd/containerd.sock
-  #% endif %#
 # NOTE: devices might need to be set if you have more than one active NIC on your hosts
 # devices: eno+ eth+
 endpointRoutes:
