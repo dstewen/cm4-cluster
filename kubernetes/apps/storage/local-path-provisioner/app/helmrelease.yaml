@@ -40,16 +40,16 @@ spec:
       externalResizer:
         enabled: false
       externalAttacher:
-        enabled: true
+        enabled: false
       externalSnapshotter:
         enabled: true
         extraArgs:
           - --leader-election=false
           - --node-deployment=true
     csiDriver:
-      name: local-hostpath.cluster.local
+      name: local-hostpath.democratic-csi.cluster.local
       storageCapacity: true
-#      attachRequired: true
+      attachRequired: false
       fsGroupPolicy: File
     storageClasses:
       - name: local-hostpath
