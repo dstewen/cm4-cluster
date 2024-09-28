@@ -181,25 +181,28 @@ spec:
 #        podMetadata:
 #          annotations:
 #            secret.reloader.stakater.com/reload: &secret thanos-objstore-config
-        ruleSelectorNilUsesHelmValues: false
-        serviceMonitorSelectorNilUsesHelmValues: false
-        podMonitorSelectorNilUsesHelmValues: false
-        probeSelectorNilUsesHelmValues: false
-        scrapeConfigSelectorNilUsesHelmValues: false
+        scrapeInterval: 1m # Must match interval in Grafana Helm chart
+        podMonitorSelector: &selector
+          matchLabels: null
+        probeSelector: *selector
+        ruleSelector: *selector
+        scrapeConfigSelector: *selector
+        serviceMonitorSelector: *selector
         enableAdminAPI: true
         walCompression: true
         enableFeatures:
           - auto-gomemlimit
           - memory-snapshot-on-shutdown
           - new-service-discovery-manager
-        retentionSize: 16GB
+        retention: 14d
+        retentionSize: 45GB
         storageSpec:
           volumeClaimTemplate:
             spec:
               storageClassName: openebs-hostpath
               resources:
                 requests:
-                  storage: 20Gi
+                  storage: 50Gi
 
 #        thanos:
 #          image: quay.io/thanos/thanos:${THANOS_VERSION}
