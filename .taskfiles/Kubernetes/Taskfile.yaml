@@ -4,6 +4,8 @@ version: "3"
 
 vars:
   KUBECONFORM_SCRIPT: "{{.SCRIPTS_DIR}}/kubeconform.sh"
+  TIMENOW:
+    sh: date +%Y%m%d-%H%M%S
 
 tasks:
 
