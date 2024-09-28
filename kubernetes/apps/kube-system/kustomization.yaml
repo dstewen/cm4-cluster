@@ -4,13 +4,12 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./cilium/ks.yaml
-#  - ./descheduler/ks.yaml
+  - ./descheduler/ks.yaml
   - ./intel-device-plugin/ks.yaml
   - ./kube-vip/ks.yaml
   - ./metrics-server/ks.yaml
 #  - ./multus/ks.yaml
 #  - ./nfs-subdir-external-provisioner/ks.yaml
   - ./node-feature-discovery/ks.yaml
-#  - ./node-problem-detector/ks.yaml
   - ./reloader/ks.yaml
   - ./spegel/ks.yaml
