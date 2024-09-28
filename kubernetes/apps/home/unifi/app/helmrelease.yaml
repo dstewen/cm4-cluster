@@ -88,10 +88,8 @@ spec:
       app:
         controller: unifi
         type: LoadBalancer
-        externalTrafficPolicy: Cluster
-        loadBalancerIP: &ip 192.168.10.227
         annotations:
-          io.cilium/lb-ipam-ips: *ip
+          io.cilium/lb-ipam-ips: 192.168.10.227
         ports:
           http:
             port: 8443
@@ -144,3 +142,11 @@ spec:
         tls:
           - hosts:
               - *host
+
+    persistence:
+      backup:
+        type: nfs
+        server: 192.168.10.15
+        path: /volume2/piNFS01/flux-cluster/plex/media
+        globalMounts:
+          - path: /backup
