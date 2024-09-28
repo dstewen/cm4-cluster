@@ -89,7 +89,9 @@ spec:
         controller: unifi
         type: LoadBalancer
         externalTrafficPolicy: Cluster
-        loadBalancerIP: 192.168.10.227
+        loadBalancerIP: &ip 192.168.10.227
+        annotations:
+          io.cilium/lb-ipam-ips: *ip
         ports:
           http:
             port: 8443
