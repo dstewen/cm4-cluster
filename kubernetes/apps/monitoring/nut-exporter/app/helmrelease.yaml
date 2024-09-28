@@ -24,6 +24,9 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
+  dependsOn:
+    - name: kube-prometheus-stack
+      namespace: monitoring
   values:
     fullnameOverride: *app
     defaultPodOptions:

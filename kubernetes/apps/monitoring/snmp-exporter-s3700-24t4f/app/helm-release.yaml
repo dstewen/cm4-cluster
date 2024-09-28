@@ -18,6 +18,9 @@ spec:
       interval: 5m
   install:
     createNamespace: true
+  dependsOn:
+    - name: kube-prometheus-stack
+      namespace: monitoring
   values:
     fullnameOverride: *app
     image:
