@@ -23,8 +23,10 @@ spec:
   uninstall:
     keepHistory: false
   dependsOn:
-    - name: rook-ceph-cluster
-      namespace: rook-ceph
+    - name: local-path-provisioner
+      namespace: storage
+    - name: volsync
+      namespace: volsync
   values:
     controllers:
       main:
@@ -109,16 +111,16 @@ spec:
     persistence:
       config:
         enabled: true
-        storageClass: ceph-filesystem
-        accessMode: ReadWriteMany
+        storageClass: local-hostpath
+        accessMode: ReadWriteOnce
         size: 2Gi
         globalMounts:
           - path: /config
         retain: true
       data:
         enabled: true
-        storageClass: ceph-filesystem
-        accessMode: ReadWriteMany
+        storageClass: local-hostpath
+        accessMode: ReadWriteOnce
         size: 50Gi
         globalMounts:
           - path: /assets
