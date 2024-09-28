@@ -143,11 +143,3 @@ spec:
         tls:
           - hosts:
               - *host
-
-    persistence:
-      backup:
-        type: nfs
-        server: 192.168.10.15
-        path: /volume2/piNFS01/flux-cluster/unifi/backup
-        globalMounts:
-          - path: /backup
