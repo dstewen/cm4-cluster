@@ -88,8 +88,9 @@ spec:
       app:
         controller: unifi
         type: LoadBalancer
+        externalTrafficPolicy: Local
         annotations:
-          io.cilium/lb-ipam-ips: 192.168.10.227
+          lbipam.cilium.io/ips: 192.168.10.227
         ports:
           http:
             port: 8443
