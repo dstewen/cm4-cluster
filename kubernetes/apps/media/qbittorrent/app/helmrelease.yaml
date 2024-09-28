@@ -120,8 +120,8 @@ spec:
         existingClaim: qbittorrent
       media:
         type: nfs
-        server: expanse.internal
-        path: /eros/Media
+        server: 192.168.10.15
+        path: /volume2/piNFS01/flux-cluster/media/downloads
         globalMounts:
-          - path: /media/Downloads/qbittorrent
-            subPath: Downloads/qbittorrent
+          - path: /media/downloads/qbittorrent
+            subPath: downloads/qbittorrent
