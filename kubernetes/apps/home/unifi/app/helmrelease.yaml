@@ -129,6 +129,7 @@ spec:
         className: "internal"
         annotations:
           nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+          nginx.ingress.kubernetes.io/proxy-ssl-verify: "off"
           hajimari.io/icon: mdi-lan
           hajimari.io/group: Home
           hajimari.io/appName: Unifi Network Controller
