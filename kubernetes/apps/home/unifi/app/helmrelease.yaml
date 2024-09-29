@@ -87,7 +87,7 @@ spec:
     service:
       app:
         controller: unifi
-#        type: LoadBalancer
+        type: LoadBalancer
         externalTrafficPolicy: Cluster
         annotations:
           lbipam.cilium.io/ips: 192.168.10.227
