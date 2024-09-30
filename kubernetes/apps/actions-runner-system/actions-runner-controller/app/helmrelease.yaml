@@ -28,6 +28,17 @@ spec:
   uninstall:
     keepHistory: false
   values:
+
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: node-role.kubernetes.io/worker
+              operator: In
+              values:
+              - worker
+
     metrics:
       controllerManagerAddr: ":8080"
       listenerAddr: ":8080"
