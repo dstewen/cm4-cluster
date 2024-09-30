@@ -26,6 +26,23 @@ spec:
     replicas: 2
     kind: Deployment
     deschedulerPolicyAPIVersion: descheduler/v1alpha2
+    affinity:
+      nodeAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+          nodeSelectorTerms:
+          - matchExpressions:
+            - key: node-role.kubernetes.io/worker
+              operator: In
+              values:
+              - worker
+        preferredDuringSchedulingIgnoredDuringExecution:
+        - weight: 1
+          preference:
+            matchExpressions:
+            - key: kubernetes.io/arch
+              operator: In
+              values:
+              - arm64
     deschedulerPolicy:
       profiles:
         - name: Default
