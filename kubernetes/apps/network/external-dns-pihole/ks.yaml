@@ -8,7 +8,7 @@ metadata:
 spec:
   targetNamespace: network
   dependsOn:
-    - name: external-secrets-store
+    - name: external-secrets-stores
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
