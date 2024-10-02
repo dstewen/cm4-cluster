@@ -90,7 +90,6 @@ spec:
         type: LoadBalancer
         externalTrafficPolicy: Local
         annotations:
-          external-dns.alpha.kubernetes.io/hostname: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
           lbipam.cilium.io/ips: 192.168.10.227
         ports:
           http:
@@ -137,7 +136,7 @@ spec:
           hajimari.io/appName: Unifi Network Controller
           hajimari.io/url: https://unifi.${SECRET_DOMAIN}
         hosts:
-          - host: "internal.${SECRET_DOMAIN}"
+          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
