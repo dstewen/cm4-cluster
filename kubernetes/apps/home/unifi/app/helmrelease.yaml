@@ -88,8 +88,9 @@ spec:
       app:
         controller: unifi
         type: LoadBalancer
-        externalTrafficPolicy: Cluster
+        externalTrafficPolicy: Local
         annotations:
+          external-dns.alpha.kubernetes.io/hostname: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
           lbipam.cilium.io/ips: 192.168.10.227
         ports:
           http:
@@ -130,13 +131,13 @@ spec:
         annotations:
           external-dns.alpha.kubernetes.io/target: internal.davidstewen.com
           nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-          nginx.ingress.kubernetes.io/proxy-ssl-verify: "off"
+#          nginx.ingress.kubernetes.io/proxy-ssl-verify: "off"
           hajimari.io/icon: mdi-lan
           hajimari.io/group: Home
           hajimari.io/appName: Unifi Network Controller
           hajimari.io/url: https://unifi.${SECRET_DOMAIN}
         hosts:
-          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
+          - host: "internal.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
