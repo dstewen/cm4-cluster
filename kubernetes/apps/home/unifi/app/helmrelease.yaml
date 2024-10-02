@@ -32,7 +32,7 @@ spec:
     - name: volsync
       namespace: volsync
   values:
-
+    fullnameOverride: *app
     defaultPodOptions:
       affinity:
         nodeAffinity:
