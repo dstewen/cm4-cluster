@@ -76,14 +76,14 @@ spec:
                 cpu: 50m
               limits:
                 memory: 3Gi
-        statefulset:
-          volumeClaimTemplates:
-            - name: config
-              accessMode: ReadWriteOnce
-              size: 10Gi
-              storageClass: local-hostpath
-              globalMounts:
-                - path: /unifi
+#        statefulset:
+#          volumeClaimTemplates:
+#            - name: config
+#              accessMode: ReadWriteOnce
+#              size: 10Gi
+#              storageClass: local-hostpath
+#              globalMounts:
+#                - path: /unifi
     service:
       app:
         controller: unifi
@@ -145,3 +145,10 @@ spec:
         tls:
           - hosts:
               - *host
+
+    persistence:
+      data:
+        enabled: true
+        existingClaim: unifi-config
+        globalMounts:
+          - path: "/unifi"
