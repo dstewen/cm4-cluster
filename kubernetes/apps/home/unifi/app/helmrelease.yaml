@@ -76,6 +76,16 @@ spec:
                 cpu: 50m
               limits:
                 memory: 3Gi
+            probes:
+              liveness:
+                enabled: true
+                port: 8080
+              readiness:
+                enabled: true
+                port: 8080
+              startup:
+                enabled: true
+                port: 8080
 #        statefulset:
 #          volumeClaimTemplates:
 #            - name: config
