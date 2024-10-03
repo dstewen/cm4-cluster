@@ -79,7 +79,16 @@ spec:
                 memory: 100M
               limits:
                 memory: 500M
-
+            probes:
+              liveness:
+                enabled: true
+                port: 80
+              readiness:
+                enabled: true
+                port: 80
+              startup:
+                enabled: true
+                port: 80
     service:
       app:
         controller: *app
