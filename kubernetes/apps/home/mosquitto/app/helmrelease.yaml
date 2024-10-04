@@ -64,7 +64,7 @@ spec:
         type: LoadBalancer
         annotations:
           external-dns.alpha.kubernetes.io/hostname: mosquitto.davidstewen.com
-          io.cilium/lb-ipam-ips: 192.168.10.228
+          lbipam.cilium.io/ips: 192.168.10.228
         ports:
           mqtt:
             enabled: true
