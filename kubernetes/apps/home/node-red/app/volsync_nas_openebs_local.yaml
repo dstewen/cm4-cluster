@@ -34,7 +34,7 @@ spec:
   trigger:
     schedule: "0 7 * * *"
   restic:
-    copyMethod: Clone
+    copyMethod: Direct
     pruneIntervalDays: 7
     repository: node-red-restic-secret
     storageClassName: local-hostpath
