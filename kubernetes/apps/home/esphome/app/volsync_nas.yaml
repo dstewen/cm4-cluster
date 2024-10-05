@@ -32,7 +32,7 @@ metadata:
 spec:
   sourcePVC: esphome-config
   trigger:
-    schedule: "0 7 * * *"
+    schedule: "0 0 * * *"
   restic:
     copyMethod: Direct
     pruneIntervalDays: 7
@@ -43,5 +43,8 @@ spec:
       runAsGroup: 568
       fsGroup: 568
     retain:
-      daily: 7
-      within: 3d
+      hourly: 6
+      daily: 5
+      weekly: 4
+      monthly: 2
+      yearly: 1
