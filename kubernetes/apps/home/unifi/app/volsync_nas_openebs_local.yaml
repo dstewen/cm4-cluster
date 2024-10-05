@@ -39,9 +39,9 @@ spec:
     repository: unifi-restic-secret
     storageClassName: local-hostpath
     moverSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
+      runAsUser: 999
+      runAsGroup: 999
+      fsGroup: 999
     retain:
       daily: 7
       within: 3d
