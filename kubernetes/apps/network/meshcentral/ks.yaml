@@ -19,11 +19,3 @@ spec:
   interval: 10m
   dependsOn:
     - name: external-secrets-stores
-  postBuild:
-    substitute:
-      APP: *app
-      HOSTNAME: meshcentral.${SECRET_DOMAIN}
-      TLS_OFFLOAD: "true"
-      WEBRTC: "true"
-      PORT: "443"
-      NEWACCOUNTS: "false"
