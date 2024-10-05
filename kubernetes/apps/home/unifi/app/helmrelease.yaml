@@ -32,7 +32,6 @@ spec:
     - name: volsync
       namespace: volsync
   values:
-    fullnameOverride: *app
     defaultPodOptions:
       affinity:
         nodeAffinity:
@@ -57,25 +56,33 @@ spec:
         type: statefulset
         annotations:
           reloader.stakater.com/auto: "true"
+        pod:
+          securityContext:
+            runAsUser: 999
+            runAsGroup: 999
+            fsGroup: 999
+            fsGroupChangePolicy: "OnRootMismatch"
         containers:
           app:
+            nameOverride: *app
             image:
               repository: jacobalberty/unifi
               tag: v8.4.62@sha256:a107953e86227abd2fee4eff85c674337a0c08f704b14d7fe5c707f3ee4fd19e
               pullPolicy: IfNotPresent
             env:
+              TZ: ${TIMEZONE}
               RUNAS_UID0: "false"
               UNIFI_UID: "999"
               UNIFI_GID: "999"
-              UNIFI_STDOUT: "false"
-              JVM_INIT_HEAP_SIZE:
+              UNIFI_STDOUT: "true"
+              # JVM_INIT_HEAP_SIZE: null
               JVM_MAX_HEAP_SIZE: 1024M
             resources:
               requests:
                 memory: 2Gi
                 cpu: 50m
-              limits:
-                memory: 3Gi
+#              limits:
+#                memory: 3Gi
 #            probes:
 #              liveness:
 #                enabled: true
@@ -96,9 +103,9 @@ spec:
 #                - path: /unifi
     service:
       app:
-        controller: unifi
+        controller: *app
         type: LoadBalancer
-        externalTrafficPolicy: Cluster
+        externalTrafficPolicy: Local
         annotations:
           lbipam.cilium.io/ips: 192.168.10.227
         ports:
