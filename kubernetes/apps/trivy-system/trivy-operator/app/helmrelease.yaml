@@ -34,6 +34,7 @@ spec:
       scanJobsConcurrentLimit: 3
       scanJobTimeout: 15m
       scanJobTTL: 10s
+      scanJobCompressLogs: false
       builtInTrivyServer: true
       metricsVulnIdEnabled: true
       vulnerabilityScannerScanOnlyCurrentRevisions: true
