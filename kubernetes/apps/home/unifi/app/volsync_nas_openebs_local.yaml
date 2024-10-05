@@ -34,7 +34,7 @@ spec:
   trigger:
     schedule: "0 7 * * *"
   restic:
-    copyMethod: Clone
+    copyMethod: Direct
     pruneIntervalDays: 14
     repository: unifi-restic-secret
     storageClassName: local-hostpath
