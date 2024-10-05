@@ -34,12 +34,9 @@ spec:
   trigger:
     schedule: "0 7 * * *"
   restic:
-    copyMethod: Snapshot
+    copyMethod: Direct
     pruneIntervalDays: 7
     repository: esphome-restic-secret
-    cacheCapacity: 2Gi
-    cacheStorageClassName: local-hostpath
-    volumeSnapshotClassName: csi-ceph-filesystem
     storageClassName: ceph-filesystem
     moverSecurityContext:
       runAsUser: 568
