@@ -32,7 +32,7 @@ metadata:
 spec:
   sourcePVC: unifi-config
   trigger:
-    schedule: "0 7 * * *"
+    schedule: "0 * * * *"
   restic:
     copyMethod: Snapshot
     pruneIntervalDays: 7
@@ -46,5 +46,8 @@ spec:
       runAsGroup: 999
       fsGroup: 999
     retain:
-      daily: 7
-      within: 3d
+      hourly: 6
+      daily: 5
+      weekly: 4
+      monthly: 2
+      yearly: 1
