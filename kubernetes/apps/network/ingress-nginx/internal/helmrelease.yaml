@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: ingress-nginx
-      version: 4.11.3
+      version: 4.11.2
       sourceRef:
         kind: HelmRepository
         name: ingress-nginx
@@ -24,27 +24,10 @@ spec:
   values:
     fullnameOverride: ingress-nginx-internal
     controller:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: node-role.kubernetes.io/worker
-                operator: In
-                values:
-                - worker
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 1
-            preference:
-              matchExpressions:
-              - key: kubernetes.io/arch
-                operator: In
-                values:
-                - arm64
       replicaCount: 1
       service:
         annotations:
-          lbipam.cilium.io/ips: "192.168.10.252"
+          lbipam.cilium.io/ips: "192.168.10.26"
         externalTrafficPolicy: Cluster
       ingressClassResource:
         name: internal

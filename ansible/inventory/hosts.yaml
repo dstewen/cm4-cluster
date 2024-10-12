@@ -49,3 +49,7 @@ kubernetes:
           ansible_user: "dstewen"
           ansible_host: "192.168.10.102"
           ansible_ssh_private_key_file: "~/Documents/k3svms"
+        "k3sworker1":
+          ansible_user: "dstewen"
+          ansible_host: "192.168.10.61"
+          ansible_ssh_private_key_file: "~/Documents/k3svms"
