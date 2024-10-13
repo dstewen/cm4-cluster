@@ -82,7 +82,7 @@ spec:
         supplementalGroups: [44, 10000]
         seccompProfile: { type: RuntimeDefault }
       nodeSelector:
-        intel.feature.node.kubernetes.io/gpu: "true"
+#        intel.feature.node.kubernetes.io/gpu: "true"
         kubernetes.io/hostname: k3sworker1
     service:
       app:
