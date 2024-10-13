@@ -6,11 +6,12 @@ metadata:
   name: google-coral-device
 spec:
   rules:
-    - # Google Coral USB Accelerator
+    - # Google Coral M2 Accelerator
       name: google.coral
       labels:
         google.feature.node.kubernetes.io/coral: "true"
       matchFeatures:
-        - feature: usb.device
+        - feature: pci.device
           matchExpressions:
-            vendor: { op: In, value: ["1a6e", "18d1"] }
+            class: { op: In, value: ["089a"] }
+            vendor: { op: In, value: ["1ac1"] }
