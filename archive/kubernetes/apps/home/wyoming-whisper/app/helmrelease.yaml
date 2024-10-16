@@ -22,7 +22,7 @@ spec:
           app:
             image:
               repository: rhasspy/wyoming-whisper
-              tag: 2.1.0
+              tag: 2.2.0
               pullPolicy: Always
             env:
               TZ: ${TIMEZONE}
