@@ -107,7 +107,7 @@ spec:
         controller: main
         ports:
           http:
-            port: &httpPort 3001
+            port: &httpPort 2283
 
     ingress:
       main:
