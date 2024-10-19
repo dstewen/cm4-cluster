@@ -37,6 +37,7 @@ includes:
   sops: .taskfiles/Sops/Taskfile.yaml
   workstation: .taskfiles/Workstation/Taskfile.yaml
   rook: .taskfiles/Rook/Taskfile.yaml
+  volsync: .taskfiles/volsync/Taskfile.yaml
   user:
     taskfile: .taskfiles/User
     optional: true
