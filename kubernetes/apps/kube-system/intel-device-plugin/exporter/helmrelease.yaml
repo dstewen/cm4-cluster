@@ -33,6 +33,17 @@ spec:
     controllers:
       intel-gpu-exporter:
         type: daemonset
+        pod:
+          affinity:
+            nodeAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                - matchExpressions:
+                  - key: kubernetes.io/hostname
+                    operator: In
+                    values:
+                    - nuc1
+                    - nuc3
         containers:
           app:
             image:
