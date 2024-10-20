@@ -5,4 +5,4 @@ kind: Kustomization
 resources:
   - ./claim.yaml
   - ./minio.yaml
-  - ./backblazeb2.yaml
+#  - ./backblazeb2.yaml
