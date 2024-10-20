@@ -11,7 +11,7 @@ spec:
     labels:
       app.kubernetes.io/name: *app
   dependsOn:
-#    - name: mosquitto
+    - name: mosquitto
     - name: node-feature-discovery-rules
   path: ./kubernetes/apps/home/frigate/app
   prune: true
@@ -22,7 +22,7 @@ spec:
   interval: 30m
   retryInterval: 1m
   timeout: 5m
-#  postBuild:
-#    substitute:
-#      APP: *app
-#      VOLSYNC_CAPACITY: 5Gi
+  postBuild:
+    substitute:
+      APP: *app
+      VOLSYNC_CAPACITY: 5Gi
