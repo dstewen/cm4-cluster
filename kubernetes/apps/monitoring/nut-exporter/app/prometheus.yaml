@@ -80,7 +80,7 @@ spec:
           targetLabel: server
       params:
         server:
-          - ${PIHOLE_IP}
+          - ${PI3B_IP}
       path: /ups_metrics
       port: metrics
       scheme: http
