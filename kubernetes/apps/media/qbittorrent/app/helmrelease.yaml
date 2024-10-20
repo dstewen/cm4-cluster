@@ -23,10 +23,12 @@ spec:
       strategy: rollback
       retries: 3
   dependsOn:
-    - name: rook-ceph-cluster
-      namespace: rook-ceph
+#    - name: rook-ceph-cluster
+#      namespace: rook-ceph
+    - name: local-path-provisioner
+      namespace: storage
     - name: volsync
-      namespace: volsync-system
+      namespace: volsync
   values:
     controllers:
       qbittorrent:
@@ -44,7 +46,7 @@ spec:
               QBT_Preferences__WebUI__AlternativeUIEnabled: false
               QBT_Preferences__WebUI__AuthSubnetWhitelistEnabled: true
               QBT_Preferences__WebUI__AuthSubnetWhitelist: |-
-                10.42.0.0/16, 192.168.10.0/24
+                10.69.0.0/16, 192.168.10.0/24
               QBT_Preferences__WebUI__LocalHostAuth: false
               QBT_BitTorrent__Session__Interface: eth0
               QBT_BitTorrent__Session__InterfaceAddress:
@@ -95,7 +97,7 @@ spec:
         controller: qbittorrent
         type: LoadBalancer
         annotations:
-          lbipam.cilium.io/ips: 192.168.10.223
+          lbipam.cilium.io/ips: ${SVC_QBITTTORENT_ADDR}
         ports:
           http:
             port: *port
