@@ -66,7 +66,7 @@ spec:
         enabled: true
         primary: false
         type: LoadBalancer
-        loadBalancerIP: 192.168.10.229
+        loadBalancerIP: ${SVC_PXE_ADDR}
         controller: main
         externalTrafficPolicy: Cluster
         ports:
