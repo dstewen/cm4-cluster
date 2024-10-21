@@ -105,7 +105,7 @@ spec:
       app:
         controller: *app
         type: LoadBalancer
-        externalTrafficPolicy: Local
+        externalTrafficPolicy: Cluster
         annotations:
           lbipam.cilium.io/ips: 192.168.10.227
         ports:
