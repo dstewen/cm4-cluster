@@ -126,7 +126,7 @@ spec:
 
 # Open port 19565 for minecraft-prometheus-exporter
       - name: metrics
-        containerPort:
+        containerPort: 19565
         protocol: TCP
         service:
           enabled: true
