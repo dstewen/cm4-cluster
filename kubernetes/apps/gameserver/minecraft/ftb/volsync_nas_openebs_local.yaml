@@ -4,7 +4,7 @@ apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: minecraft-ftb-restic
-  namespace: home
+  namespace: gameserver
 spec:
   secretStoreRef:
     kind: ClusterSecretStore
@@ -28,7 +28,7 @@ apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
   name: minecraft-ftb-minio-rsrc
-  namespace: home
+  namespace: gameserver
 spec:
   sourcePVC: minecraft-ftb-data-v1
   trigger:

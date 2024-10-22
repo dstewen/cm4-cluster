@@ -6,4 +6,4 @@ resources:
   - ./data-pvc.yaml
   - ./helmrelease.yaml
 #  - ./volsync.yaml
-#  - ./volsync_nas_openebs_local.yaml
+  - ./volsync_nas_openebs_local.yaml
