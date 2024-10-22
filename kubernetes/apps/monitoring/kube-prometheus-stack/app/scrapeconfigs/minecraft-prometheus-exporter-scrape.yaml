@@ -6,7 +6,8 @@ metadata:
   name: minecraft
 spec:
   staticConfigs:
-    - targets: ["192.168.10.230:19565"]
+    - targets:
+        - "http://minecraft-ftb-minecraft-metrics:19565"
 #      labels:
 #        application: MyMinecraftModPack
 #        instance: node1.unrealhosting.fr
