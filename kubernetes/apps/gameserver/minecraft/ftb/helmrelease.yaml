@@ -44,8 +44,8 @@ spec:
       limits:
         memory: 10G
     securityContext:
-      runAsUser: 1000
-      fsGroup: 2000
+      runAsUser: 568
+      fsGroup: 568
     serviceAnnotations:
       lbipam.cilium.io/ips: 192.168.10.230
 #      mc-router.itzg.me/externalServerName: "mcsv.${SECRET_DOMAIN}"
