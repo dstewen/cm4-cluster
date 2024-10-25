@@ -7,4 +7,4 @@ resources:
   - ./pvc.yaml
 #  - ./volsync_restic_nas_minio.yaml
 #  - ./volsync_backblazeb2.yaml
-  - ./volsync_nas_democrtic-csi-local.yaml
+#  - ./volsync_nas_democrtic-csi-local.yaml
