@@ -12,7 +12,7 @@ metadata:
     gethomepage.dev/href: https://home-assistantpi4.${SECRET_DOMAIN}
     gethomepage.dev/widget.type: homeassistant
     gethomepage.dev/widget.url: http://192.168.10.22:8123
-    gethomepage.dev/widget.key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI3NDJkOThkZDUyN2Y0MjNiOGM2NTJiZGJjZDNlY2NjZiIsImlhdCI6MTcxMTgwODc1OSwiZXhwIjoyMDI3MTY4NzU5fQ.TzjKHJDC-pNDfg0ldAVR4iNmBGusoDAN-vVd3gyqa8U"
+    gethomepage.dev/widget.key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIyYTYwNGJhNTEyZjM0YzYwYWM4YWFjMmZkNDNkNWY4OSIsImlhdCI6MTcyOTkyNzgxMSwiZXhwIjoyMDQ1Mjg3ODExfQ.ZG4hgS9ekqTr36Un_AqBtfp0NqSj8U5GqQPo9sijXTo"
     hajimari.io/enable: "true"
     hajimari.io/icon: mdi:home-assistant
     hajimari.io/group: Home
