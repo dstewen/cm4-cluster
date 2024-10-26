@@ -120,9 +120,6 @@ spec:
           gethomepage.dev/name: Home-Assistant-CM4-Cluster
           gethomepage.dev/group: Home
           gethomepage.dev/href: https://home-assistant.${SECRET_DOMAIN}
-          gethomepage.dev/widget.type: homeassistant
-          gethomepage.dev/widget.url: http://home-assistant.home:8123
-          gethomepage.dev/widget.key: "${HOMEPAGE_VAR_HASS_API_TOKEN}"
           hajimari.io/enable: "true"
           hajimari.io/icon: mdi:home-assistant
           hajimari.io/group: Home
