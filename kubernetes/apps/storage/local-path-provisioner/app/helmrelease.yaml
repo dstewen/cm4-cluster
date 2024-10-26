@@ -47,7 +47,7 @@ spec:
           - --leader-election=false
           - --node-deployment=true
     csiDriver:
-      name: local-hostpath.democratic-csi.cluster.local
+      name: "org.democratic-csi.local-hostpath"
       storageCapacity: true
       attachRequired: false
       fsGroupPolicy: File
