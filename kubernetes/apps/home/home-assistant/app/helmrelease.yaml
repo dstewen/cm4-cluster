@@ -115,6 +115,18 @@ spec:
       app:
         annotations:
           external-dns.alpha.kubernetes.io/target: external.davidstewen.com
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/icon: home-assistant.png
+          gethomepage.dev/name: Home-Assistant-CM4-Cluster
+          gethomepage.dev/group: Home
+          gethomepage.dev/href: https://home-assistant.${SECRET_DOMAIN}
+          gethomepage.dev/widget.type: homeassistant
+          gethomepage.dev/widget.url: http://home-assistant.home:8123
+          gethomepage.dev/widget.key: "${HOMEPAGE_VAR_HASS_API_TOKEN}"
+          hajimari.io/enable: "true"
+          hajimari.io/icon: mdi:home-assistant
+          hajimari.io/group: Home
+          hajimari.io/url: https://home-assistant.${SECRET_DOMAIN}
         className: external
         hosts:
           - host: home-assistant.davidstewen.com
@@ -126,6 +138,15 @@ spec:
       code-server:
         annotations:
           external-dns.alpha.kubernetes.io/target: internal.davidstewen.com
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/icon: home-assistant.png
+          gethomepage.dev/name: Home-Assistant-Yellow
+          gethomepage.dev/group: Home
+          gethomepage.dev/href: https://hass-code.${SECRET_DOMAIN}
+          hajimari.io/enable: "true"
+          hajimari.io/icon: mdi:home-assistant
+          hajimari.io/group: Home
+          hajimari.io/url: https://hass-code.${SECRET_DOMAIN}
         className: internal
         hosts:
           - host: hass-code.davidstewen.com
