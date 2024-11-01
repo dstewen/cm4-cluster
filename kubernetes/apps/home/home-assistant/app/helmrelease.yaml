@@ -154,7 +154,7 @@ spec:
                   port: code-server
     persistence:
       config:
-        existingClaim: home-assistant
+        existingClaim: home-assistant-config
         globalMounts:
           - path: /config
       logs:
