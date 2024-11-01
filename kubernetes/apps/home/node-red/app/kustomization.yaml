@@ -7,10 +7,10 @@ resources:
 #  - ./volsync_nas_openebs_local.yaml
 #  - ./volsync_backblazeb2.yaml
 #  - ./volsync_backblazeb2_openebs_local.yaml
-#  - ./config-pvc.yaml
+  - ./config-pvc.yaml
   - ./externalsecret.yaml
   - ./helmrelease.yaml
-  - ../../../../templates/volsync
+#  - ../../../../templates/volsync
 configMapGenerator:
   - name: node-red-configmap
     files:
