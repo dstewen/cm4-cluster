@@ -25,6 +25,7 @@ resources:
   - ./falco-security-charts.yaml
   - ./flagger.yaml
   - ./gitea.yaml
+  - ./go-skynet.yaml
   - ./grafana.yaml
   - ./hajimari.yaml
   - ./ingress-nginx.yaml
@@ -32,6 +33,7 @@ resources:
   - ./itzg.yaml
   - ./jetstack.yaml
   - ./k8s-gateway.yaml
+  - ./k8sgpt.yaml
   - ./kubernetes-dashboard.yaml
   - ./kubernetes-replicator-charts.yaml
   - ./kubernetes-sigs-descheduler-charts.yaml
@@ -40,6 +42,7 @@ resources:
   - ./metrics-server.yaml
   - ./nextcloud.yaml
   - ./nfs-provisioner.yaml
+  - ./ollama.yaml
   - ./openebs.yaml
   - ./piraeus.yaml
   - ./prometheus-community.yaml

@@ -1,21 +1,22 @@
 ---
-# yaml-language-server: $schema=https://kubernetes-schemas.thesteamedcrab.com/kustomization_v1.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fluxcd-community/flux2-schemas/main/kustomization-kustomize-v1.json
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: ai-k8sgpt-operator
+  name: &app k8sgpt-operator
   namespace: flux-system
-  labels:
-    substitution.flux.home.arpa/enabled: "true"
 spec:
   targetNamespace: ai
-  path: ./kubernetes/main/apps/ai/k8sgpt/app
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *app
+  path: ./kubernetes/apps/ai/k8sgpt/app
   prune: true
   sourceRef:
     kind: GitRepository
-    name: home-ops-kubernetes
+    name: home-kubernetes
   dependsOn:
-    - name: ai-ollama
+    - name: ollama
   interval: 30m
   retryInterval: 1m
   timeout: 3m
@@ -24,19 +25,20 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: ai-k8sgpt-config
+  name: &app k8sgpt-config
   namespace: flux-system
-  labels:
-    substitution.flux.home.arpa/enabled: "true"
 spec:
   targetNamespace: ai
-  path: ./kubernetes/main/apps/ai/k8sgpt/config
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: *app
+  path: ./kubernetes/apps/ai/k8sgpt/config
   prune: true
   sourceRef:
     kind: GitRepository
-    name: home-ops-kubernetes
+    name: home-kubernetes
   dependsOn:
-    - name: ai-k8sgpt-operator
+    - name: k8sgpt-operator
   interval: 30m
   retryInterval: 1m
   timeout: 3m
