@@ -57,12 +57,12 @@ spec:
 
     resources:
       requests:
-        cpu: 200m
-        memory: 10G
-#        nvidia.com/gpu: 1
+#        cpu: 200m
+#        memory: 10G
+        gpu.intel.com/i915: 1
       limits:
-        memory: 10G
-#        nvidia.com/gpu: 1
+#        memory: 10G
+        gpu.intel.com/i915: 1
 
     models:
       forceDownload: false
@@ -79,7 +79,7 @@ spec:
         annotations: {}
         storageClass: local-hostpath
         accessModes: ReadWriteOnce
-        size: 100Gi
+        size: 10Gi
         globalMount: /models
 
       output:
@@ -87,7 +87,7 @@ spec:
         annotations: {}
         storageClass: local-hostpath
         accessModes: ReadWriteOnce
-        size: 10Gi
+        size: 5Gi
         globalMount: /tmp/generated
 
     service:
