@@ -7,34 +7,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  volumeMode: Filesystem
+  storageClassName: local-hostpath
   resources:
     requests:
       storage: 64Gi
-  volumeName: stable-diffusion-data-pv
-  storageClassName: stable-diffusion-data-storage-class
-
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: stable-diffusion-data-pv
-  labels:
-    type: longhorn
-    recurring-job-group.longhorn.io/weekly-backup: enabled
-    recurring-job-group.longhorn.io/daily-snapshot: enabled
-spec:
-  capacity:
-    storage: 64Gi
-  volumeMode: Filesystem
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: stable-diffusion-data-storage-class
-  csi:
-    driver: driver.longhorn.io
-    fsType: xfs
-    volumeAttributes:
-      numberOfReplicas: "2"
-      staleReplicaTimeout: "2880"
-    volumeHandle: stable-diffusion-data-xfs

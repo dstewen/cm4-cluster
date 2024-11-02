@@ -2,39 +2,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  namespace: ai
   name: comfyui-workspace-pvc
 spec:
   accessModes:
     - ReadWriteOnce
-  volumeMode: Filesystem
+  storageClassName: local-hostpath
   resources:
     requests:
       storage: 200Gi
-  volumeName: comfyui-workspace-pv
-  storageClassName: comfyui-workspace-storage-class
-
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: comfyui-workspace-pv
-  labels:
-    type: longhorn
-    recurring-job-group.longhorn.io/weekly-backup: enabled
-    recurring-job-group.longhorn.io/daily-snapshot: enabled
-spec:
-  capacity:
-    storage: 200Gi
-  volumeMode: Filesystem
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
-  storageClassName: comfyui-workspace-storage-class
-  csi:
-    driver: driver.longhorn.io
-    fsType: xfs
-    volumeAttributes:
-      numberOfReplicas: "2"
-      staleReplicaTimeout: "2880"
-    volumeHandle: comfyui-workspace-xfs
