@@ -369,8 +369,8 @@ spec:
       kubernetes:
         kubernetes-api-server:
           # renovate: depName="Kubernetes / System / API Server"
-          gnetId: 16761
-          revision: 16
+          gnetId: 15761
+          revision: 18
           datasource: Prometheus
 
         kubernetes-coredns:
@@ -382,25 +382,25 @@ spec:
         kubernetes-global:
           # renovate: depName="Kubernetes / Views / Global"
           gnetId: 15757
-          revision: 37
+          revision: 42
           datasource: Prometheus
 
         kubernetes-namespaces:
           # renovate: depName="Kubernetes / Views / Namespaces"
           gnetId: 15758
-          revision: 35
+          revision: 39
           datasource: Prometheus
 
         kubernetes-nodes:
           # renovate: depName="Kubernetes / Views / Nodes"
           gnetId: 15759
-          revision: 29
+          revision: 32
           datasource: Prometheus
 
         kubernetes-pods:
           # renovate: depName="Kubernetes / Views / Pods"
           gnetId: 15760
-          revision: 29
+          revision: 32
           datasource: Prometheus
 
         kubernetes-volumes:
@@ -625,7 +625,7 @@ spec:
         prometheus:
           # renovate: depName="Prometheus"
           gnetId: 19105
-          revision: 3
+          revision: 5
           datasource: Prometheus
 
       system:
@@ -711,6 +711,7 @@ spec:
           revision: 3
           datasource:
             - { name: DS_PROMETHEUS, value: Prometheus }
+            - { name: VAR_REPLICATIONDESTNAME, value: .*-dst }
 
       testing:
         arc-autoscaling-runner-set-monitoring:
