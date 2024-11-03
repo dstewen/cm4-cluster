@@ -7,6 +7,6 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
 #  - ./localai/ks.yaml
-#  - ./k8sgpt/ks.yaml
+  - ./k8sgpt/ks.yaml
   - ./ollama/ks.yaml
 #  - ./stable-diffusion/ks.yaml
