@@ -79,10 +79,10 @@ spec:
 
     resources:
       requests:
-        memory: 8G
+        memory: 4G
         cpu: 2000m
       limits:
-        memory: 8G
+        memory: 12G
 
     livenessProbe:
       enabled: true
