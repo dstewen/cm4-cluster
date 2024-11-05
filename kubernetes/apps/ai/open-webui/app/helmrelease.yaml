@@ -44,4 +44,4 @@ spec:
 
     persistence:
       enabled: true
-      existingClaim: "open-webui"
+      existingClaim: "open-webui-data"
