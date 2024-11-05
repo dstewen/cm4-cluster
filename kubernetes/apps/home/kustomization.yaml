@@ -15,6 +15,6 @@ resources:
   - ./smtp-relay/ks.yaml
   - ./unifi/ks.yaml
 #  - ./vaultwarden/ks.yaml
-  - ./wyoming-piper/ks.yaml
-  - ./wyoming-whisper/ks.yaml
+#  - ./wyoming-piper/ks.yaml
+#  - ./wyoming-whisper/ks.yaml
 #  - ./zigbee2mqtt/ks.yaml
