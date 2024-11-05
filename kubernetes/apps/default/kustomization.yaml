@@ -7,6 +7,6 @@ resources:
   - ./namespace.yaml
   # Flux-Kustomizations
   - ./hajimari/ks.yaml
-  - ./homepage/ks.yaml
+#  - ./homepage/ks.yaml
   - ./misc-ingress/ks.yaml
 
