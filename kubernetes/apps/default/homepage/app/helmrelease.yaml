@@ -16,10 +16,12 @@ spec:
         namespace: flux-system
   install:
     remediation:
-      retries: 5
+      retries: 3
   upgrade:
     remediation:
-      retries: 5
+      retries: 3
+  uninstall:
+    keepHistory: false
   values:
     defaultPodOptions:
       affinity:
@@ -52,7 +54,7 @@ spec:
               repository: ghcr.io/gethomepage/homepage
               tag: v0.9.11
             env:
-              TZ: Australia/Victoria
+              TZ: ${TIMEZONE}
             envFrom:
               - secretRef:
                   name: homepage-secret
