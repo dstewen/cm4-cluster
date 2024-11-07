@@ -43,8 +43,8 @@ spec:
         containers:
           app:
             image:
-              repository: boinc/client:intel
-              tag: 2024.11.0@sha256:5cb437353c422a5c90045b8011ffa47d2eb24facda6ac8e6d4fab7f00cf2d74c
+              repository: boinc/client
+              tag: intel
             env:
               TZ: "${TIMEZONE}"
               BOINC_GUI_RPC_PASSWORD: "123"
