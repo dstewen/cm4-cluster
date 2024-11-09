@@ -146,7 +146,7 @@ spec:
           - path: /dev/bus/usb
       media:
         type: nfs
-        server: "${NFS_SERVER_ADDR}"
-        path: "${NFS_SERVER_CAMERAS_DIR}"
+        server: 192.168.10.15
+        path: /volume2/piNFS01/flux-cluster/media/frigate
         globalMounts:
           - path: /media/frigate
