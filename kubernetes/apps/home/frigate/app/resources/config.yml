@@ -11,10 +11,14 @@ ffmpeg:
   global_args: ["-hide_banner", "-loglevel", "warning"]
   hwaccel_args: preset-vaapi
 
+#detectors:
+#  coral:
+#    type: edgetpu
+#    device: pci
 detectors:
-  coral:
-    type: edgetpu
-    device: pci
+  ov:
+    type: openvino
+    device: GPU
 
 audio:
   enabled: true
@@ -47,19 +51,13 @@ snapshots:
 go2rtc:
   streams:
     phone_rtsp:
-      - rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@192.168.1.13:8554/cam/realmonitor?channel=1&subtype=0&authbasic=64
+      - rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@192.168.1.13:8554/live
     phone_rtsp_sub:
-      - rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@192.168.1.13:554/cam/realmonitor?channel=1&subtype=1&authbasic=64
-    office:
-      - rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.1.4.32:554/cam/realmonitor?channel=1&subtype=0&authbasic=64
-    office_sub:
-      - rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.1.4.32:554/cam/realmonitor?channel=1&subtype=1&authbasic=64
-    garage:
-      - rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.1.4.30:554/cam/realmonitor?channel=1&subtype=0&authbasic=64
-    garage_sub:
-      - rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.1.4.30:554/cam/realmonitor?channel=1&subtype=1&authbasic=64
-    front_door:
-      - rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.1.4.10:554/cam/realmonitor?channel=1&subtype=0&authbasic=64#backchannel=0
+      - rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@192.168.1.13:8554/live
+#    office:
+#      - rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.1.4.32:554/cam/realmonitor?channel=1&subtype=0&authbasic=64
+#    office_sub:
+#      - rtsp://{FRIGATE_RTSP_USER}:{FRIGATE_RTSP_PASSWORD}@10.1.4.32:554/cam/realmonitor?channel=1&subtype=1&authbasic=64
 
 cameras:
   phone_rtsp:
@@ -82,84 +80,29 @@ cameras:
       width: 640
       height: 480
       fps: 10
-    onvif:
-      host: 10.1.4.31
-      port: 80
-      user: '{FRIGATE_RTSP_USER}'
-      password: '{FRIGATE_RTSP_PASSWORD}'
 
-  office:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/office
-          input_args: preset-rtsp-restream
-          roles:
-            - record
-        - path: rtsp://127.0.0.1:8554/office_sub
-          input_args: preset-rtsp-restream
-          roles:
-            - audio
-            - detect
-      output_args:
-        record: preset-record-generic-audio-copy
-    live:
-      stream_name: office
-    detect:
-      width: 640
-      height: 480
-      fps: 10
-    onvif:
-      host: 10.1.4.32
-      port: 80
-      user: '{FRIGATE_RTSP_USER}'
-      password: '{FRIGATE_RTSP_PASSWORD}'
-
-  garage:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/garage
-          input_args: preset-rtsp-restream
-          roles:
-            - detect
-            - record
-      output_args:
-        record: preset-record-generic-audio-copy
-    live:
-      stream_name: garage
-    audio:
-      enabled: false
-    detect:
-      width: 640
-      height: 480
-      fps: 10
-    onvif:
-      host: 10.1.4.30
-      port: 80
-      user: '{FRIGATE_RTSP_USER}'
-      password: '{FRIGATE_RTSP_PASSWORD}'
-
-  front_door:
-    ffmpeg:
-      inputs:
-        - path: rtsp://127.0.0.1:8554/front_door
-          input_args: preset-rtsp-restream
-          roles:
-            - audio
-            - detect
-            - record
-      output_args:
-        record: preset-record-generic-audio-copy
-    live:
-      stream_name: front_door
-    audio:
-      enabled: true
-      listen:
-        - speech
-        - yell
-        - water
-        - drip
-        - footsteps
-    detect:
-      width: 1920
-      height: 1080
-      fps: 7
+#  office:
+#    ffmpeg:
+#      inputs:
+#        - path: rtsp://127.0.0.1:8554/office
+#          input_args: preset-rtsp-restream
+#          roles:
+#            - record
+#        - path: rtsp://127.0.0.1:8554/office_sub
+#          input_args: preset-rtsp-restream
+#          roles:
+#            - audio
+#            - detect
+#      output_args:
+#        record: preset-record-generic-audio-copy
+#    live:
+#      stream_name: office
+#    detect:
+#      width: 640
+#      height: 480
+#      fps: 10
+#    onvif:
+#      host: 10.1.4.32
+#      port: 80
+#      user: '{FRIGATE_RTSP_USER}'
+#      password: '{FRIGATE_RTSP_PASSWORD}'
