@@ -16,9 +16,9 @@ ffmpeg:
 #    type: edgetpu
 #    device: pci
 detectors:
-  ov:
-    type: openvino
-    device: GPU
+  cpu1:
+    type: cpu
+    num_threads: 3
 
 audio:
   enabled: true
