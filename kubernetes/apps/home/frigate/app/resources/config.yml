@@ -5,7 +5,7 @@ mqtt:
   topic_prefix: frigate
   port: 1883
   user: "{FRIGATE_MQTT_USERNAME}"
-  password: '{FRIGATE_MQTT_PASSWORD}'
+  password: "{FRIGATE_MQTT_PASSWORD}"
 
 ffmpeg:
   global_args: ["-hide_banner", "-loglevel", "warning"]
