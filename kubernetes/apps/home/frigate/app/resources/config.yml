@@ -1,7 +1,7 @@
 ---
 version: 0.14
 mqtt:
-  host: mosquitto.home.svc.cluster.local
+  host: 192.168.10.228
   topic_prefix: frigate
   port: 1883
   user: "{FRIGATE_MQTT_USERNAME}"
