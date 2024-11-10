@@ -45,10 +45,6 @@ data:
         style: row
         columns: 3
         icon: mdi-home-automation
-      AI:
-        style: row
-        columns: 3
-        icon: mdi-brain
       Monitoring:
         style: column
         icon: mdi-monitor-eye
