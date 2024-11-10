@@ -70,11 +70,11 @@ spec:
           secretKeyRef:
             name: open-webui-secret
             key: OAUTH_CLIENT_SECRET
-      - name: OPENWEBUI_OPENID_REDIRECT_URI
+      - name: OPENID_REDIRECT_URI
         valueFrom:
           secretKeyRef:
             name: open-webui-secret
-            key: OPENWEBUI_OPENID_REDIRECT_URI
+            key: OPENID_REDIRECT_URI
     ingress:
       enabled: true
       class: internal
