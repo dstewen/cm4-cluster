@@ -97,10 +97,16 @@ data:
             - icon: kubernetes-dashboard.png
               description: Helm Chart Search
               href: https://kubesearch.dev/
-        - flux-cluster:
+        - cm4-cluster:
             - icon: github.png
               description: Renovate Dashboard
-              href: https://github.com/dstewen/flux-cluster/issues/93
+              href: https://github.com/dstewen/cm4-cluster/issues/1
+    - Proxmox:
+        - pve1
+            - icon: proxmox.png
+              description: Proxmox host pve1
+              href: https://pve1.davidstewen.com:8096
+
   services.yaml: |
     - Infrastructure:
         - Cloudflared:
