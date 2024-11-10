@@ -50,6 +50,31 @@ spec:
     # -- A list of Ollama API endpoints. These can be added in lieu of automatically installing the Ollama Helm chart, or in addition to it.
     ollamaUrls: ["http://ollama.ai.svc.cluster.local.:11434"]
 
+    extraEnvVars:
+      - name: OAUTH_PROVIDER_NAME
+        value: authentik
+      - name: ENABLE_OAUTH_SIGNUP
+        value: "true"
+      - name: OPENID_PROVIDER_URL
+        valueFrom:
+          secretKeyRef:
+            name: open-webui-secret
+            key: OPENID_PROVIDER_URL
+      - name: OAUTH_CLIENT_ID
+        valueFrom:
+          secretKeyRef:
+            name: open-webui-secret
+            key: OAUTH_CLIENT_ID
+      - name: OAUTH_CLIENT_SECRET
+        valueFrom:
+          secretKeyRef:
+            name: open-webui-secret
+            key: OAUTH_CLIENT_SECRET
+      - name: OPENWEBUI_OPENID_REDIRECT_URI
+        valueFrom:
+          secretKeyRef:
+            name: open-webui-secret
+            key: OPENWEBUI_OPENID_REDIRECT_URI
     ingress:
       enabled: true
       class: internal
