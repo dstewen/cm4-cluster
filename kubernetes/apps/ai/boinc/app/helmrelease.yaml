@@ -96,16 +96,7 @@ spec:
       app:
         annotations:
           external-dns.alpha.kubernetes.io/target: internal.davidstewen.com
-          gethomepage.dev/enabled: "true"
-          gethomepage.dev/icon: boinc.png
-          gethomepage.dev/name: boinc-CM4-Cluster
-          gethomepage.dev/group: Home
-          gethomepage.dev/href: https://boinc.${SECRET_DOMAIN}
-          hajimari.io/enable: "true"
-          hajimari.io/icon: mdi:boinc
-          hajimari.io/group: Home
-          hajimari.io/url: https://boinc.${SECRET_DOMAIN}
-        className: external
+        className: internal
         hosts:
           - host: boinc.davidstewen.com
             paths:
