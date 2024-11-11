@@ -3,25 +3,22 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: afterlogic-webmail
-  namespace: services
+  name: &app afterlogic-webmail
 spec:
   interval: 30m
   chart:
     spec:
       chart: app-template
-      version: 2.0.3
-      interval: 30m
+      version: 3.5.1
       sourceRef:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-  maxHistory: 2
   install:
     remediation:
       retries: 3
   upgrade:
-    cleanupOnFail: true
+#    cleanupOnFail: true
     remediation:
       retries: 3
   uninstall:
@@ -29,20 +26,19 @@ spec:
 
   values:
     controllers:
-      main:
+      afterlogic-webmail:
+        replicas: 1
         strategy: RollingUpdate
         annotations:
           reloader.stakater.com/auto: "true"
 
-        pod:
-          enableServiceLinks: false
-
         containers:
-          main:
+          app:
             image:
               repository: afterlogic/docker-webmail-lite
-              tag: latest
+              tag: 9.7.7
             env:
+              TZ: ${TIMEZONE}
               # afterlogic-webmailMAIL_DB_DSNW:
               #   valueFrom:
               #     secretKeyRef:
@@ -58,21 +54,22 @@ spec:
             #     memory: 512Mi
 
     service:
-      main:
+      app:
+        controller: *app
         ports:
           http:
             port: 80
 
     ingress:
-      main:
+      app:
         enabled: true
-        className: "internal-nginx"
+        className: "internal"
         hosts:
-          - host: &host "{{ .Release.Name }}.${EXTERNAL_DOMAIN}"
+          - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
               - path: /
                 service:
-                  name: main
+                  identifier: main
                   port: http
         tls:
           - hosts:
