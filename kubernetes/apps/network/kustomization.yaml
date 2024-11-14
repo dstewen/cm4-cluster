@@ -14,5 +14,5 @@ resources:
   - ./k8s-gateway/ks.yaml
   - ./meshcentral/ks.yaml
   - ./netboot/ks.yaml
-  - ./netshoot/ks.yaml
+#  - ./netshoot/ks.yaml
   - ./openspeedtest/ks.yaml
