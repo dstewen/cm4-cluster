@@ -29,8 +29,8 @@ spec:
               repository: docker.io/searxng/searxng
               tag: 2024.6.30-39aaac40d
             env:
-              SEARXNG_BASE_URL: https://search.bjw-s.dev
-              SEARXNG_URL: https://search.bjw-s.dev
+              SEARXNG_BASE_URL: https://search.${SECRET_DOMAIN}
+              SEARXNG_URL: https://search.${SECRET_DOMAIN}
               SEARXNG_PORT: &httpPort 8080
               SEARXNG_REDIS_URL: redis://searxng-redis.selfhosted.svc.cluster.local:6379/0
             envFrom:
@@ -112,9 +112,9 @@ spec:
       app:
         className: "internal"
         annotations:
-          external-dns.alpha.kubernetes.io/target: ingress.bjw-s.dev
+          external-dns.alpha.kubernetes.io/target: ingress.${SECRET_DOMAIN}
         hosts:
-          - host: search.bjw-s.dev
+          - host: search.${SECRET_DOMAIN}
             paths:
               - path: /
                 service:

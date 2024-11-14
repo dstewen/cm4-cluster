@@ -16,7 +16,7 @@ search:
     - en-US
 
 general:
-  instance_name: BJW-S Search
+  instance_name: DS Search
 
 ui:
   default_theme: simple
