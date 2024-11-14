@@ -82,6 +82,15 @@ spec:
         className: "internal"
         annotations:
           external-dns.alpha.kubernetes.io/target: internal.davidstewen.com
+          gethomepage.dev/enabled: "true"
+          gethomepage.dev/icon: it-tools.png
+          gethomepage.dev/name: IT Tools
+          gethomepage.dev/group: Selfhosted
+          gethomepage.dev/href: https://it-tools.${SECRET_DOMAIN}
+          hajimari.io/enable: "true"
+          hajimari.io/icon: mdi:it-tools
+          hajimari.io/group: Selfhosted
+          hajimari.io/url: https://it-tools.${SECRET_DOMAIN}
         hosts:
           - host: &host "{{ .Release.Name }}.${SECRET_DOMAIN}"
             paths:
