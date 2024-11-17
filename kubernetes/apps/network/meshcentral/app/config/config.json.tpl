@@ -23,7 +23,7 @@
       "_title": "MyServer",
       "_title2": "Servername",
       "minify": true,
-      "NewAccounts": false,
+      "NewAccounts": true,
       "localSessionRecording": false,
       "_userNameIsEmail": true,
       "_certUrl": "${HOSTNAME}"
