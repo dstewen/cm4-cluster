@@ -91,7 +91,26 @@ spec:
 #                      operator: In
 #                      values: ["sabnzbd"]
 #                topologyKey: kubernetes.io/hostname
+
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: node-role.kubernetes.io/worker
+                operator: In
+                values:
+                - worker
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: kubernetes.io/arch
+                operator: In
+                values:
+                - arm64
       terminationGracePeriodSeconds: 300
+
     service:
       app:
         controller: qbittorrent
