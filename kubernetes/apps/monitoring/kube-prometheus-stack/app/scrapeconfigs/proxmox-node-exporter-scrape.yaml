@@ -3,11 +3,13 @@
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: ScrapeConfig
 metadata:
-  name: pve1
+  name: proxmox-hosts
 spec:
   staticConfigs:
     - targets:
         - "pve1.davidstewen.com:9100"
+        - "pve2.davidstewen.com:9100"
+        - "pve3.davidstewen.com:9100"
 #      labels:
 #        application: MyMinecraftModPack
 #        instance: node1.unrealhosting.fr
