@@ -113,13 +113,3 @@ spec:
           paths:
             - path: /
               pathType: Prefix
-
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-              - k3sworker1
