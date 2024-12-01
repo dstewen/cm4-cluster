@@ -12,7 +12,7 @@ resources:
   - ./external-dns-pihole/ks.yaml
   - ./ingress-nginx/ks.yaml
   - ./k8s-gateway/ks.yaml
-  - ./meshcentral/ks.yaml
+#  - ./meshcentral/ks.yaml
   - ./multus/ks.yaml
 #  - ./netboot/ks.yaml
   - ./netshoot/ks.yaml
