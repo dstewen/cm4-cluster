@@ -65,7 +65,7 @@ spec:
                   topologyKey: kubernetes.io/hostname
         containers:
           - name: runner
-            image: ghcr.io/joryirving/actions-runner:2.321.0@sha256:81f64a94e65c70c676d29e1779d1cc4069665abb970803c76beb08ca234638b6
+            image: ghcr.io/joryirving/actions-runner:2.322.0@sha256:1fdc89425ee6c72b818006aa55d966674a9673f017964b297dbb3d91a6d5a82d
             command: ["/home/runner/run.sh"]
 
 # Required for arc metrics
