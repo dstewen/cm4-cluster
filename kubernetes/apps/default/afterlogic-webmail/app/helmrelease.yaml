@@ -36,7 +36,7 @@ spec:
           app:
             image:
               repository: afterlogic/docker-webmail-lite
-              tag: 9.7.7
+              tag: 9.8.1
             env:
               TZ: ${TIMEZONE}
               # afterlogic-webmailMAIL_DB_DSNW:
